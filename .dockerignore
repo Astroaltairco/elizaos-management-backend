@@ -1,0 +1,12 @@
+
+node_modules
+dist
+*.log
+.env
+coverage
+test
+Dockerfile
+.dockerignore
+policy
+lambda
+.husky

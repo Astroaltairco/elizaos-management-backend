@@ -1,0 +1,17 @@
+overwrite: true
+schema:
+  - '${HASURA_ENDPOINT_URL}/v1/graphql':
+      headers:
+        'X-Hasura-Admin-Secret': ${HASURA_GRAPHQL_ADMIN_SECRET}
+generates:
+  src/generated/graphql.ts:
+    plugins:
+      - 'typescript'
+      - 'typescript-operations'
+      - 'typescript-document-nodes'
+      - 'typescript-graphql-request'
+    config:
+      gqlImport: graphql-request#gql
+  ./graphql.schema.json:
+    plugins:
+      - 'introspection'

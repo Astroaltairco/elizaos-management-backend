@@ -1,0 +1,33 @@
+type Mutation {
+  sendCode(
+    input: SendCodeInput!
+  ): SendCodeOutput
+}
+
+type Mutation {
+  verifyCode(
+    input: VerifyCodeInput!
+  ): VerifyCodeOutput
+}
+
+input SendCodeInput {
+  phoneNumber: String!
+}
+
+input VerifyCodeInput {
+  phoneNumber: String!
+  phoneCode: String!
+}
+
+type SendCodeOutput {
+  success: Boolean!
+  message: String!
+  phoneCodeHash: String!
+}
+
+type VerifyCodeOutput {
+  success: Boolean!
+  userId: String!
+  sessionFile: String!
+}
+

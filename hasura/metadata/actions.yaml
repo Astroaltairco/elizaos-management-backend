@@ -1,0 +1,20 @@
+actions:
+  - name: sendCode
+    definition:
+      kind: synchronous
+      handler: '{{API_BASE_URL}}/auth/send-code'
+      forward_client_headers: true
+  - name: verifyCode
+    definition:
+      kind: synchronous
+      handler: '{{API_BASE_URL}}/auth/verify-code'
+      forward_client_headers: true
+custom_types:
+  enums: []
+  input_objects:
+    - name: SendCodeInput
+    - name: VerifyCodeInput
+  objects:
+    - name: SendCodeOutput
+    - name: VerifyCodeOutput
+  scalars: []
