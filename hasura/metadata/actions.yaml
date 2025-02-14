@@ -9,6 +9,8 @@ actions:
       kind: synchronous
       handler: '{{API_BASE_URL}}/auth/verify-code'
       forward_client_headers: true
+    permissions:
+      - role: anonymous
 custom_types:
   enums: []
   input_objects:
