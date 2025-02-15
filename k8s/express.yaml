@@ -1,0 +1,62 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: express
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: express
+  template:
+    metadata:
+      labels:
+        app: express
+    spec:
+      containers:
+        - name: express
+          image: registry.digitalocean.com/socialdao-backend-hasura/elizaos/express:v1.0.2
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 4000
+          env:
+            - name: PORT
+              value: '4000'
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: elizaos-secrets
+                  key: POSTGRES_PASSWORD
+            - name: POSTGRES_USER
+              valueFrom:
+                secretKeyRef:
+                  name: elizaos-secrets
+                  key: POSTGRES_USER
+            - name: POSTGRES_HOST
+              valueFrom:
+                secretKeyRef:
+                  name: elizaos-secrets
+                  key: POSTGRES_HOST
+            - name: POSTGRES_PORT
+              valueFrom:
+                secretKeyRef:
+                  name: elizaos-secrets
+                  key: POSTGRES_PORT
+            - name: POSTGRES_DB
+              valueFrom:
+                secretKeyRef:
+                  name: elizaos-secrets
+                  key: POSTGRES_DB
+            - name: ELIZAOS_API_URL
+              value: http://elizaos:3000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: express
+spec:
+  selector:
+    app: express
+  ports:
+    - protocol: TCP
+      port: 4000
+      targetPort: 4000

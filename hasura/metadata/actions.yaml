@@ -4,6 +4,19 @@ actions:
       kind: synchronous
       handler: '{{API_BASE_URL}}/auth/send-code'
       forward_client_headers: true
+  - name: startAgent
+    definition:
+      kind: synchronous
+      handler: '{{API_BASE_URL}}/start-agent'
+      forward_client_headers: true
+    permissions:
+      - role: anonymous
+  - name: stopAgent
+    definition:
+      kind: synchronous
+      handler: '{{API_BASE_URL}}/stop-agent'
+    permissions:
+      - role: anonymous
   - name: verifyCode
     definition:
       kind: synchronous
@@ -16,7 +29,11 @@ custom_types:
   input_objects:
     - name: SendCodeInput
     - name: VerifyCodeInput
+    - name: StartAgentInput
+    - name: StopAgentInput
   objects:
     - name: SendCodeOutput
     - name: VerifyCodeOutput
+    - name: StartAgentOutput
+    - name: StopAgentOutput
   scalars: []

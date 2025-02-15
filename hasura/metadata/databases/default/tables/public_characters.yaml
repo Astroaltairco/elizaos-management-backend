@@ -1,6 +1,37 @@
 table:
   name: characters
   schema: public
+configuration:
+  column_config:
+    agent_id:
+      custom_name: agentId
+    created_at:
+      custom_name: createdAt
+    delete_at:
+      custom_name: deleteAt
+    is_active:
+      custom_name: isActive
+    is_published:
+      custom_name: isPublished
+    start_at:
+      custom_name: startAt
+    stop_at:
+      custom_name: stopAt
+    updated_at:
+      custom_name: updatedAt
+    user_id:
+      custom_name: userId
+  custom_column_names:
+    agent_id: agentId
+    created_at: createdAt
+    delete_at: deleteAt
+    is_active: isActive
+    is_published: isPublished
+    start_at: startAt
+    stop_at: stopAt
+    updated_at: updatedAt
+    user_id: userId
+  custom_root_fields: {}
 object_relationships:
   - name: user
     using:

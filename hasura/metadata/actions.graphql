@@ -5,6 +5,18 @@ type Mutation {
 }
 
 type Mutation {
+  startAgent(
+    input: StartAgentInput!
+  ): StartAgentOutput
+}
+
+type Mutation {
+  stopAgent(
+    input: StopAgentInput!
+  ): StopAgentOutput
+}
+
+type Mutation {
   verifyCode(
     input: VerifyCodeInput!
   ): VerifyCodeOutput
@@ -19,6 +31,14 @@ input VerifyCodeInput {
   phoneCode: String!
 }
 
+input StartAgentInput {
+  characterId: String!
+}
+
+input StopAgentInput {
+  characterId: String!
+}
+
 type SendCodeOutput {
   success: Boolean!
   message: String!
@@ -29,5 +49,33 @@ type VerifyCodeOutput {
   success: Boolean!
   userId: String!
   sessionFile: String!
+}
+
+type StartAgentOutput {
+  id: String
+  character: String
+  userId: String
+  agentId: String
+  isPublished: Boolean
+  isActive: Boolean
+  startAt: String
+  stopAt: String
+  deletedAt: String
+  updatedAt: String
+  createdAt: String
+}
+
+type StopAgentOutput {
+  id: String
+  character: String
+  userId: String
+  agentId: String
+  isPublished: Boolean
+  isActive: Boolean
+  startAt: String
+  stopAt: String
+  deletedAt: String
+  updatedAt: String
+  createdAt: String
 }
 
