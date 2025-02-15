@@ -19,7 +19,7 @@ export const POSTGRES_HOST = env
 export const POSTGRES_DB = env.get('POSTGRES_DB').default('db').asString();
 export const POSTGRES_USER = env
   .get('POSTGRES_USER')
-  .default('iihf')
+  .default('socialdao')
   .asString();
 export const POSTGRES_PASSWORD = env
   .get('POSTGRES_PASSWORD')
