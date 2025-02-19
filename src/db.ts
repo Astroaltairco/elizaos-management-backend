@@ -15,6 +15,9 @@ export const knexConfig: Knex.Config = {
     password: POSTGRES_PASSWORD,
     database: POSTGRES_DB,
     port: POSTGRES_PORT,
+    // ssl: {
+    //   rejectUnauthorized: false,
+    // },
   },
 };
 

@@ -41,7 +41,14 @@ insert_permissions:
     permission:
       check: {}
       columns:
+        - is_active
+        - is_published
         - character
+        - created_at
+        - delete_at
+        - start_at
+        - stop_at
+        - updated_at
         - agent_id
         - id
         - user_id
@@ -50,7 +57,14 @@ select_permissions:
   - role: anonymous
     permission:
       columns:
+        - is_active
+        - is_published
         - character
+        - created_at
+        - delete_at
+        - start_at
+        - stop_at
+        - updated_at
         - agent_id
         - id
         - user_id
@@ -60,7 +74,14 @@ update_permissions:
   - role: anonymous
     permission:
       columns:
+        - is_active
+        - is_published
         - character
+        - created_at
+        - delete_at
+        - start_at
+        - stop_at
+        - updated_at
         - agent_id
         - id
         - user_id
