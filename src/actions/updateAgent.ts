@@ -1,3 +1,5 @@
+import { updateAgentElizaOS } from "@/services/elizaOSClient";
+
 import { Request, Response } from 'express';
 import { z } from 'zod';
 import db from '@/db';
@@ -7,41 +9,41 @@ const sendCodeSchema = z.object({
   input: z.object({
     input: z.object({
       characterId: z.string(),
+      character: z.record(z.any()),
     }),
   }),
 });
 
-export const stopAgent = async (req: Request, res: Response) => {
+export const updateAgent = async (req: Request, res: Response) => {
   try {
     const { input } = sendCodeSchema.parse(req.body);
-    const { characterId } = input.input;
+    const { characterId, character } = input.input;
 
-    const character = await db('characters')
-      .select('*')
+    const characterRecord = await db('characters')
       .where('id', characterId)
       .first();
 
-    if (!character || !character.agent_id) {
+    if (!characterRecord || !characterRecord.agent_id) {
       console.error(
         'Failed to retrieve agent. Result is undefined or malformed.'
       );
       return [];
     }
 
-    const response = await stopAgentElizaOS({
-      agentId: character.agent_id,
+    const response = await updateAgentElizaOS({
+      agentId: characterRecord.agent_id,
+      characterJson: character
     });
 
     if (!response) {
-      console.error('Failed to start agent. Result is undefined or malformed.');
+      console.error('Failed to update agent. Result is undefined or malformed.');
       return [];
     }
 
     const result = await db('characters')
       .where('id', characterId)
       .update({
-        stop_at: new Date(),
-        is_active: false,
+        updated_at: new Date()
       })
       .returning('*');
 

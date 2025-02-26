@@ -8,6 +8,7 @@ import { Router } from 'express';
 import { fetchAllCharacters } from '@/services/fetchAllCharacters';
 import { startAgent } from '@/actions/startAgent';
 import { stopAgent } from '@/actions/stopAgent';
+import { updateAgent } from '@/actions/updateAgent';
 
 const router = Router();
 //
@@ -23,5 +24,8 @@ router.post('/start-agent', startAgent);
 
 // @ts-ignore
 router.post('/stop-agent', stopAgent);
+
+// @ts-ignore
+router.post('/update-agent', updateAgent);
 
 export default router;
