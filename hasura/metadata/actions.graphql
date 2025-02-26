@@ -22,6 +22,12 @@ type Mutation {
   ): VerifyCodeOutput
 }
 
+type Mutation {
+  updateAgent(
+    input: UpdateAgentInput!
+  ): UpdateAgentOutput
+}
+
 input SendCodeInput {
   phoneNumber: String!
 }
@@ -37,6 +43,11 @@ input StartAgentInput {
 
 input StopAgentInput {
   characterId: String!
+}
+
+input UpdateAgentInput {
+  characterId: String!
+  character: jsonb!
 }
 
 type SendCodeOutput {
@@ -66,6 +77,20 @@ type StartAgentOutput {
 }
 
 type StopAgentOutput {
+  id: String
+  character: String
+  userId: String
+  agentId: String
+  isPublished: Boolean
+  isActive: Boolean
+  startAt: String
+  stopAt: String
+  deletedAt: String
+  updatedAt: String
+  createdAt: String
+}
+
+type UpdateAgentOutput {
   id: String
   character: String
   userId: String

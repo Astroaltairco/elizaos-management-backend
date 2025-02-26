@@ -24,6 +24,13 @@ actions:
       forward_client_headers: true
     permissions:
       - role: anonymous
+  - name: updateAgent
+    definition:
+      kind: synchronous
+      handler: '{{API_BASE_URL}}/update-agent'
+      forward_client_headers: true
+    permissions:
+      - role: anonymous
 custom_types:
   enums: []
   input_objects:
@@ -31,9 +38,11 @@ custom_types:
     - name: VerifyCodeInput
     - name: StartAgentInput
     - name: StopAgentInput
+    - name: UpdateAgentInput
   objects:
     - name: SendCodeOutput
     - name: VerifyCodeOutput
     - name: StartAgentOutput
     - name: StopAgentOutput
+    - name: UpdateAgentOutput
   scalars: []

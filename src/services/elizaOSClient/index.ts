@@ -44,3 +44,21 @@ export async function stopAgentElizaOS({ agentId }: stopAgentProps) {
     throw new Error(error.response?.data?.error || 'Failed to start agent');
   }
 }
+
+interface updateAgentProps {
+  agentId: string;
+  characterJson: Record<string, any>;
+}
+export async function updateAgentElizaOS({ agentId, characterJson }: updateAgentProps) {
+  try {
+    const response = await axios.post(`${ELIZAOS_API_URL}/agents/${agentId}/set`, characterJson);
+
+    return response.data; // Return updated agent details
+  } catch (error: any) {
+    console.error(
+      'Error updating agent:',
+      error.response?.data || error.message
+    );
+    throw new Error(error.response?.data?.error || 'Failed to update agent');
+  }
+}

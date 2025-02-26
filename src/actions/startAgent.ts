@@ -47,7 +47,7 @@ export const startAgent = async (req: Request, res: Response) => {
 
     res.status(200).json({
       id: result[0].id,
-      agentId: result[0].id,
+      agentId: result[0].agentId,
       character: result[0].character,
       isPublished: result[0].is_published,
       isActive: result[0].is_active,
