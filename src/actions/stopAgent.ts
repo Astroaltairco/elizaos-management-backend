@@ -33,7 +33,7 @@ export const stopAgent = async (req: Request, res: Response) => {
     });
 
     if (!response) {
-      console.error('Failed to start agent. Result is undefined or malformed.');
+      console.error('Failed to stop agent. Result is undefined or malformed.');
       return [];
     }
 

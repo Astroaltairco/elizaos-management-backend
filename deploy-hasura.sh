@@ -4,7 +4,7 @@
 
 ECR_REPO="registry.digitalocean.com/socialdao-backend-hasura"
 HASURA_IMAGE_NAME="elizaos-hasura"
-HASURA_TAG="v1.0.2"
+HASURA_TAG="v1.0.6"
 
 # Step 1: Authenticate Docker with AWS ECR
 echo "Authenticating Docker with ECR..."

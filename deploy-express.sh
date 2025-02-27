@@ -4,7 +4,7 @@
 
 ECR_REPO="registry.digitalocean.com/socialdao-backend-hasura"
 EXPRESS_IMAGE_NAME="elizaos-express"
-EXPRESS_TAG="v1.0.3"
+EXPRESS_TAG="v1.0.12"
 
 # Step 1: Authenticate Docker with AWS ECR
 echo "Authenticating Docker with ECR..."

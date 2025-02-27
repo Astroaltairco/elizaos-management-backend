@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: hasura
-          image: registry.digitalocean.com/socialdao-backend-hasura/elizaos/hasura:v1.0.2
+          image: registry.digitalocean.com/socialdao-backend-hasura/elizaos/hasura:v1.0.6
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
