@@ -5,7 +5,7 @@ export const fetchAllCharacters = async (req: Request, res: Response) => {
   try {
     const characters = await db('characters')
       .select('*')
-      .where('is_published', true);
+      .where('is_active', true);
 
     if (!characters) {
       console.error(
