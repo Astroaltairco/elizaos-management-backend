@@ -35,6 +35,11 @@ spec:
               value: anonymous
             - name: API_BASE_URL
               value: http://express:4000/api/v1
+            - name: HASURA_GRAPHQL_JWT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: elizaos-secrets
+                  key: HASURA_GRAPHQL_JWT_SECRET
 ---
 apiVersion: v1
 kind: Service
